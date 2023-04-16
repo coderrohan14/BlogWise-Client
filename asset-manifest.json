@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BlogWise_Client/static/css/main.8d136563.css",
+    "main.js": "/BlogWise_Client/static/js/main.91196aa7.js",
+    "index.html": "/BlogWise_Client/index.html",
+    "main.8d136563.css.map": "/BlogWise_Client/static/css/main.8d136563.css.map",
+    "main.91196aa7.js.map": "/BlogWise_Client/static/js/main.91196aa7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d136563.css",
+    "static/js/main.91196aa7.js"
+  ]
+}
