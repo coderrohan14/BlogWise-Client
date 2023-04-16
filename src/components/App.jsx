@@ -21,7 +21,7 @@ import RegisterPage from "./RegisterPage/RegisterPage";
 const App = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/BlogWise-Client",
       element: <Layout />,
       children: [
         {
