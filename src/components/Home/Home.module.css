@@ -1,0 +1,46 @@
+.home {
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 160px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+.addButton {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #005bc8;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.4);
+  transform: translateY(-2px);
+  background-color: #3a78c2;
+}
+
+.bottomButtons {
+  position: fixed;
+  width: 100%;
+  bottom: 50px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .addButton {
+    font-size: 16px;
+  }
+}
