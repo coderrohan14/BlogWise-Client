@@ -19,54 +19,57 @@ import {
 import RegisterPage from "./RegisterPage/RegisterPage";
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "/login",
-          element: <SignInPage />,
-        },
-        {
-          path: "/register",
-          element: <RegisterPage />,
-        },
-        {
-          path: "/verifyEmail",
-          element: <VerifyEmailPage />,
-        },
-        {
-          path: "/forgotPassword",
-          element: <ForgotPassword />,
-        },
-        {
-          path: "/checkMail",
-          element: <CheckMailPage />,
-        },
-        {
-          path: "posts/:postID",
-          Component: PostPage,
-        },
-        {
-          path: "/myPosts",
-          element: <MyPosts />,
-        },
-        {
-          path: "/profile",
-          element: <Profile />,
-        },
-        {
-          path: "*",
-          element: <NotFound />,
-        },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "/login",
+            element: <SignInPage />,
+          },
+          {
+            path: "/register",
+            element: <RegisterPage />,
+          },
+          {
+            path: "/verifyEmail",
+            element: <VerifyEmailPage />,
+          },
+          {
+            path: "/forgotPassword",
+            element: <ForgotPassword />,
+          },
+          {
+            path: "/checkMail",
+            element: <CheckMailPage />,
+          },
+          {
+            path: "posts/:postID",
+            Component: PostPage,
+          },
+          {
+            path: "/myPosts",
+            element: <MyPosts />,
+          },
+          {
+            path: "/profile",
+            element: <Profile />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
+          },
+        ],
+      },
+    ],
+    { basename: "/BlogWise-Client" }
+  );
 
   return <RouterProvider router={router} />;
 };
