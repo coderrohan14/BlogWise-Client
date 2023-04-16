@@ -76,6 +76,7 @@ export const authApiSlice = createApi({
       }),
     }),
   }),
+  injectCredentials: true,
 });
 
 export const {
