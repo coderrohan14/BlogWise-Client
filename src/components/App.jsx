@@ -65,8 +65,8 @@ const App = () => {
           },
         ],
       },
-    ],
-    { basename: "/BlogWise-Client" }
+    ]
+    // { basename: "/BlogWise-Client" }
   );
 
   return <RouterProvider router={router} />;
