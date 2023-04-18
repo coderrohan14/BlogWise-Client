@@ -28,23 +28,23 @@ const App = () => {
             element: <Home />,
           },
           {
-            path: "/login",
+            path: "login",
             element: <SignInPage />,
           },
           {
-            path: "/register",
+            path: "register",
             element: <RegisterPage />,
           },
           {
-            path: "/verifyEmail",
+            path: "verifyEmail",
             element: <VerifyEmailPage />,
           },
           {
-            path: "/forgotPassword",
+            path: "forgotPassword",
             element: <ForgotPassword />,
           },
           {
-            path: "/checkMail",
+            path: "checkMail",
             element: <CheckMailPage />,
           },
           {
@@ -52,11 +52,11 @@ const App = () => {
             Component: PostPage,
           },
           {
-            path: "/myPosts",
+            path: "myPosts",
             element: <MyPosts />,
           },
           {
-            path: "/profile",
+            path: "profile",
             element: <Profile />,
           },
           {
