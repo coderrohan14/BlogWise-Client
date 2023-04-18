@@ -41,7 +41,7 @@ const SignInPage = () => {
 
   if (isLoginSuccess) {
     window.location.reload(true);
-    navigate("/", { replace: true });
+    navigate("/BlogWise-Client", { replace: true });
   }
   return (
     <div

@@ -16,6 +16,7 @@ import {
 import { selectCurrentUser } from "../../app/features/userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const PostCard = ({ post }) => {
   const currentUser = useSelector(selectCurrentUser);
@@ -32,9 +33,9 @@ const PostCard = ({ post }) => {
   const [getUserInfo, { data: userInfo, isLoading: userInfoLoading }] =
     useLazyGetUserInfoQuery();
 
-  const [likePost] = useLikePostMutation();
+  const [likePost, { isLoading: likeLoading }] = useLikePostMutation();
 
-  const [unlikePost] = useUnlikePostMutation();
+  const [unlikePost, { isLoading: unlikeLoading }] = useUnlikePostMutation();
 
   useEffect(() => {
     getUserInfo(post.userID);
@@ -50,6 +51,16 @@ const PostCard = ({ post }) => {
 
   return (
     <>
+      {(userInfoLoading || likeLoading || unlikeLoading) && (
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            zIndex: "20",
+            top: "50%",
+            left: "50%",
+          }}
+        />
+      )}
       {userInfo && (
         <div
           className={styles.postCard}
