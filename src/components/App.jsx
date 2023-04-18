@@ -11,15 +11,13 @@ import MyPosts from "./MyPosts/MyPosts";
 import Profile from "./Profile/Profile";
 import {
   createBrowserRouter,
+  createHashRouter,
   RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route,
 } from "react-router-dom";
 import RegisterPage from "./RegisterPage/RegisterPage";
 
 const App = () => {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     [
       {
         path: "/",
@@ -67,8 +65,8 @@ const App = () => {
           },
         ],
       },
-    ],
-    { basename: "/BlogWise-Client" }
+    ]
+    // { basename: "/BlogWise-Client" }
   );
 
   return <RouterProvider router={router} />;
