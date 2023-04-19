@@ -30,6 +30,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const PostPage = () => {
   const { data: antiCsrfToken } = useGetTokenQuery();
@@ -69,21 +70,30 @@ const PostPage = () => {
   const [getUserInfo, { data: userInfo, isLoading: userInfoLoading }] =
     useLazyGetUserInfoQuery();
 
-  const [likePost, { isSuccess: postLikeSuccessful }] = useLikePostMutation();
+  const [
+    likePost,
+    { isSuccess: postLikeSuccessful, isLoading: likePostLoading },
+  ] = useLikePostMutation();
 
   const [
     addComment,
     { isLoading: addCommentLoading, isSuccess: addCommentSuccess },
   ] = useAddCommentMutation();
 
-  const [updatePostContent, { isSuccess: updatePostContentSuccess }] =
-    useUpdatePostContentMutation();
+  const [
+    updatePostContent,
+    { isSuccess: updatePostContentSuccess, isLoading: updateCommentLoading },
+  ] = useUpdatePostContentMutation();
 
-  const [deletePost, { isSuccess: deletePostSuccess }] =
-    useDeletePostMutation();
+  const [
+    deletePost,
+    { isSuccess: deletePostSuccess, isLoading: deletePostLoading },
+  ] = useDeletePostMutation();
 
-  const [unlikePost, { isSuccess: postUnlikeSuccessful }] =
-    useUnlikePostMutation();
+  const [
+    unlikePost,
+    { isSuccess: postUnlikeSuccessful, isLoading: unlikePostLoading },
+  ] = useUnlikePostMutation();
 
   const currentUser = useSelector(selectCurrentUser);
 
@@ -158,6 +168,23 @@ const PostPage = () => {
       className={styles.postPage}
       style={{ backgroundColor: theme.body, color: theme.text }}
     >
+      {(postDataLoading ||
+        postCommentsLoading ||
+        userInfoLoading ||
+        likePostLoading ||
+        addCommentLoading ||
+        updateCommentLoading ||
+        deletePostLoading ||
+        unlikePostLoading) && (
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            zIndex: "20",
+            top: "50%",
+            left: "50%",
+          }}
+        />
+      )}
       {postData &&
         postData.post &&
         userInfo &&

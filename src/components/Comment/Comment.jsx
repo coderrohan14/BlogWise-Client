@@ -24,6 +24,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Comment = ({ comment }) => {
   const { data: antiCsrfToken } = useGetTokenQuery();
@@ -51,13 +52,17 @@ const Comment = ({ comment }) => {
     { data: userInfo, isLoading: userInfoLoading, isSuccess: userInfoSuccess },
   ] = useLazyGetUserInfoQuery();
 
-  const [likeComment] = useLikeCommentMutation();
+  const [likeComment, { isLoading: likeCommentLoading }] =
+    useLikeCommentMutation();
 
-  const [unlikeComment] = useUnlikeCommentMutation();
+  const [unlikeComment, { isLoading: unlikeCommentLoading }] =
+    useUnlikeCommentMutation();
 
-  const [deleteComment] = useDeleteCommentMutation();
+  const [deleteComment, { isLoading: deleteCommentLoading }] =
+    useDeleteCommentMutation();
 
-  const [updateComment] = useUpdateCommentMutation();
+  const [updateComment, { isLoading: updateCommentLoading }] =
+    useUpdateCommentMutation();
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -84,6 +89,20 @@ const Comment = ({ comment }) => {
 
   return (
     <>
+      {(userInfoLoading ||
+        likeCommentLoading ||
+        unlikeCommentLoading ||
+        deleteCommentLoading ||
+        updateCommentLoading) && (
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            zIndex: "20",
+            top: "50%",
+            left: "50%",
+          }}
+        />
+      )}
       {userInfo && (
         <div
           className={styles.postCard}

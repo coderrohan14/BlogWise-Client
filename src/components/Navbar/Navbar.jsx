@@ -15,6 +15,9 @@ import {
   useLogoutMutation,
   authApiSlice,
 } from "../../app/api/authApiSlice";
+import CircularProgress from "@mui/material/CircularProgress";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -27,6 +30,7 @@ const Navbar = () => {
       isSuccess: isLogoutSuccess,
       isError: isLogoutError,
       error: logoutError,
+      isLoading: logoutLoading,
     },
   ] = useLogoutMutation();
 
@@ -60,6 +64,16 @@ const Navbar = () => {
     dispatch(setUserInfo({}));
   }, [isLogoutSuccess]);
 
+  useEffect(() => {
+    if (isLogoutError) {
+      if (logoutError.data.err) {
+        toast.error(logoutError.data.err.msg);
+      } else {
+        toast.error("Unable to logout, please try again.");
+      }
+    }
+  }, [isLogoutError]);
+
   const currentUser = useSelector(selectCurrentUser);
   const { toggleTheme, theme } = useContext(ThemeContext);
   return (
@@ -71,6 +85,23 @@ const Navbar = () => {
         boxShadow: `0 2px ${theme.shadow}`,
       }}
     >
+      <ToastContainer
+        style={{
+          color: "red",
+          position: "absolute",
+          top: "10%",
+        }}
+      />
+      {logoutLoading && (
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            zIndex: "20",
+            top: "50%",
+            left: "50%",
+          }}
+        />
+      )}
       <h1
         style={{ cursor: "pointer" }}
         onClick={() => {
