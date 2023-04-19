@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useLoaderData, Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -9,8 +9,10 @@ import {
   useLazyGetUserInfoQuery,
 } from "../../app/api/authApiSlice";
 import { setUserInfo } from "../../app/features/userSlice";
+import { ThemeContext } from "../../ThemeContext";
 
 const Layout = () => {
+  const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
   const { data } = useGetTokenQuery();
   const [getUser, { data: userInfo, isLoading }] = useLazyGetUserInfoQuery();
@@ -25,7 +27,10 @@ const Layout = () => {
     }
   }, [userInfo]);
   return (
-    <div className={styles.layoutStyle}>
+    <div
+      className={styles.layoutStyle}
+      style={{ backgroundColor: theme.body, color: theme.text }}
+    >
       <Navbar />
       <Outlet />
       <Footer />

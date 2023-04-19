@@ -5,11 +5,8 @@ body {
 
 .postPage {
   margin: 0;
-  padding: 140px 20px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  padding: 80px 10px;
 }
 
 .postCard {
@@ -18,12 +15,14 @@ body {
   z-index: 1;
   border-radius: 5px;
   height: auto;
+  margin: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
 .userSection {
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -183,11 +182,9 @@ body {
   .postCard {
     padding: 10px;
   }
-  .postPage {
-    padding: 220px 20px;
-  }
   .timeAgo {
     margin: 0;
+    margin-left: auto;
     padding: 5px;
     font-size: 14px;
   }
@@ -216,11 +213,5 @@ body {
   .body {
     word-break: break-all;
     overflow: auto;
-  }
-}
-
-@media only screen and (max-width: 480px) and (min-height: 800px) {
-  .postPage {
-    padding: 190px 20px;
   }
 }

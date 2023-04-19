@@ -62,27 +62,30 @@ const MyPosts = () => {
         <h3>You haven't posted anything yet.</h3>
       )}
       {pagesData && (
-        <Pagination
-          sx={{
-            marginLeft: "10px",
-            padding: "10px",
-            backgroundColor: "#F5F5F5",
-            borderRadius: "10px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.16)",
-            transition: "all 0.3s ease",
-            cursor: "pointer",
-            ":hover": {
-              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.16)",
-              transform: "translateY(-2px)",
-            },
-          }}
-          size={isMobile ? "small" : "medium"}
-          count={Number(pagesData.totalPages)}
-          color="primary"
-          onChange={(event, page) => {
-            setCurrentPage(page);
-          }}
-        />
+        <div className={styles.paginationButton}>
+          <Pagination
+            sx={{
+              width: "auto",
+              zIndex: "10",
+              padding: "10px",
+              backgroundColor: "#F5F5F5",
+              borderRadius: "10px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.16)",
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              ":hover": {
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.16)",
+                transform: "translateY(-2px)",
+              },
+            }}
+            size={isMobile ? "small" : "medium"}
+            count={Number(pagesData.totalPages)}
+            color="primary"
+            onChange={(event, page) => {
+              setCurrentPage(page);
+            }}
+          />
+        </div>
       )}
     </div>
   );

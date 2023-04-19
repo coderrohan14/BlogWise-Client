@@ -40,9 +40,6 @@
   width: 30px;
   border-radius: 50%;
   border: 2px solid;
-  /* object-fit: cover;
-  object-position: center center;
-  overflow: hidden; */
 }
 
 .commentSection {
@@ -110,11 +107,9 @@
   .postCard {
     padding: 10px;
   }
-  .postPage {
-    padding: 220px 20px;
-  }
   .timeAgo {
     margin: 0;
+    margin-left: auto;
     padding: 5px;
     font-size: 14px;
   }
@@ -139,14 +134,7 @@
     font-size: 14px;
   }
   .commentSection > p {
-    /* overflow: hidden; */
     word-break: break-all;
     overflow: auto;
-  }
-}
-
-@media only screen and (max-width: 480px) and (min-height: 800px) {
-  .postPage {
-    padding: 190px 20px;
   }
 }
