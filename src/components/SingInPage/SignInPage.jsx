@@ -40,8 +40,8 @@ const SignInPage = () => {
   console.log(loginResponse);
 
   if (isLoginSuccess) {
-    window.location.reload(true);
     navigate("/", { replace: true });
+    window.location.reload(true);
   }
   return (
     <div

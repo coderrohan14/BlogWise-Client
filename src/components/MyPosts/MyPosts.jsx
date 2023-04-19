@@ -9,6 +9,7 @@ import {
 } from "../../app/api/postsApiSlice";
 import PostCard from "../PostCard/PostCard";
 import Pagination from "@mui/material/Pagination";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const MyPosts = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -55,6 +56,16 @@ const MyPosts = () => {
         color: theme.color,
       }}
     >
+      {postsDataLoading && (
+        <CircularProgress
+          sx={{
+            position: "absolute",
+            zIndex: "20",
+            top: "50%",
+            left: "50%",
+          }}
+        />
+      )}
       <h2 style={{ color: theme.text }}>My Posts</h2>
       {postsDataSuccess &&
         postsData.posts.map((post) => <PostCard key={post._id} post={post} />)}

@@ -29,8 +29,8 @@ const RegisterPage = () => {
     }
   }, [isError]);
   if (isSuccess) {
-    window.location.reload(true);
     navigate("/verifyEmail", { replace: true });
+    window.location.reload(true);
   }
   return (
     <div

@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/BlogWise-Client/static/css/main.181ee175.css",
-    "main.js": "/BlogWise-Client/static/js/main.c5ac89da.js",
+    "main.css": "/BlogWise-Client/static/css/main.177b81a1.css",
+    "main.js": "/BlogWise-Client/static/js/main.aa0be43b.js",
     "index.html": "/BlogWise-Client/index.html",
-    "main.181ee175.css.map": "/BlogWise-Client/static/css/main.181ee175.css.map",
-    "main.c5ac89da.js.map": "/BlogWise-Client/static/js/main.c5ac89da.js.map"
+    "main.177b81a1.css.map": "/BlogWise-Client/static/css/main.177b81a1.css.map",
+    "main.aa0be43b.js.map": "/BlogWise-Client/static/js/main.aa0be43b.js.map"
   },
   "entrypoints": [
-    "static/css/main.181ee175.css",
-    "static/js/main.c5ac89da.js"
+    "static/css/main.177b81a1.css",
+    "static/js/main.aa0be43b.js"
   ]
 }
