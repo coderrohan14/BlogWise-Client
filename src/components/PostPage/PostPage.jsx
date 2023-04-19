@@ -160,6 +160,7 @@ const PostPage = () => {
   useEffect(() => {
     if (deletePostSuccess && deletePostSuccess.success) {
       navigate("/", { replace: true });
+      window.location.reload(true);
     }
   }, [deletePostSuccess]);
 
