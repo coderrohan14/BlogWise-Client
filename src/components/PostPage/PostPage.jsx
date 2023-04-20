@@ -87,7 +87,11 @@ const PostPage = () => {
 
   const [
     deletePost,
-    { isSuccess: deletePostSuccess, isLoading: deletePostLoading },
+    {
+      isSuccess: deletePostSuccess,
+      isLoading: deletePostLoading,
+      data: deletePostData,
+    },
   ] = useDeletePostMutation();
 
   const [
@@ -158,9 +162,8 @@ const PostPage = () => {
   }, [currentUser, postData]);
 
   useEffect(() => {
-    if (deletePostSuccess && deletePostSuccess.success) {
-      navigate("/#", { replace: true });
-      window.location.reload(true);
+    if (deletePostSuccess && deletePostData.success) {
+      navigate("/", { replace: true });
     }
   }, [deletePostSuccess]);
 

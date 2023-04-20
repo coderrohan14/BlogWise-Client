@@ -90,9 +90,9 @@ const PostCard = ({ post }) => {
               className={styles.readMore}
               onClick={() => {
                 if (currentUser && currentUser.user) {
-                  navigate(`/posts/${post._id}`, { replace: true });
+                  navigate(`/posts/${post._id}`);
                 } else {
-                  navigate(`/login`, { replace: true });
+                  navigate(`/login`);
                 }
               }}
             >

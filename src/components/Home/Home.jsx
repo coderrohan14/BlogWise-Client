@@ -46,7 +46,8 @@ const Home = () => {
   const [getTotalPages, { data: pagesData, isLoading: pagesDataLoading }] =
     useLazyGetTotalPagesQuery();
 
-  const [addPost, { isSuccess: addPostSuccess }] = useAddPostMutation();
+  const [addPost, { isSuccess: addPostSuccess, isLoading: addPostLoading }] =
+    useAddPostMutation();
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -81,6 +82,8 @@ const Home = () => {
 
   const handleClose = () => {
     setOpen(false);
+    setNewTitle("");
+    setNewBody("");
   };
 
   return (
@@ -91,7 +94,7 @@ const Home = () => {
         color: theme.color,
       }}
     >
-      {postsDataLoading && (
+      {(postsDataLoading || addPostLoading) && (
         <CircularProgress
           sx={{
             position: "absolute",
